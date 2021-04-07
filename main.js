@@ -1,31 +1,30 @@
 const { app, BrowserWindow } = require('electron')
-const path = require('path')
+
+let mainWindow
 
 function createWindow () {
-  const win = new BrowserWindow({
+  mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
+      nodeIntegration: true
     },
-    icon: 'PeerPiper.png'
+    icon: 'favicon.ico'
   })
 
-  win.loadFile('index.html')
+  mainWindow.loadFile('public/index.html')
+
+  mainWindow.on('closed', function () {
+    mainWindow = null
+  })
 }
 
-app.whenReady().then(() => {
-  createWindow()
+app.on('ready', createWindow)
 
-  app.on('activate', () => {
-    if (BrowserWindow.getAllWindows().length === 0) {
-      createWindow()
-    }
-  })
+app.on('window-all-closed', function () {
+  if (process.platform !== 'darwin') app.quit()
 })
 
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit()
-  }
+app.on('activate', function () {
+  if (mainWindow === null) createWindow()
 })
