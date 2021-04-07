@@ -1,24 +1,30 @@
 {
   "name": "peerpiper-home",
-  "version": "0.1.0",
-  "description": "Peerpiper.io at home",
+  "version": "0.2.0",
   "main": "main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/DougAnderson444/peerpiper-home.git"
-  },
-  "keywords": [],
-  "author": "Doug Anderson",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/DougAnderson444/peerpiper-home/issues"
-  },
-  "homepage": "https://github.com/DougAnderson444/peerpiper-home#readme",
   "devDependencies": {
-    "electron": "^12.0.2"
+    "@rollup/plugin-commonjs": "^17.1.0",
+    "concurrently": "^5.3.0",
+    "electron": "^11.2.1",
+    "node-sass": "^5.0.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.2.4",
+    "postcss-import": "^14.0.0",
+    "rollup": "^2.38.2",
+    "rollup-plugin-css-only": "^3.1.0",
+    "rollup-plugin-livereload": "^2.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-svelte": "^7.1.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "sirv-cli": "^1.0.11",
+    "svelte": "^3.32.1",
+    "svelte-preprocess": "^4.6.5"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "autobuild": "rollup -c -w",
+    "dev": "concurrently \"run-p start:dev autobuild\" \"electron .\"",
+    "start": "sirv public",
+    "start:dev": "sirv public --dev"
   }
 }
