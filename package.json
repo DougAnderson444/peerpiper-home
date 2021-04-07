@@ -1,0 +1,24 @@
+{
+  "name": "peerpiper-home",
+  "version": "0.1.0",
+  "description": "Peerpiper.io at home",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DougAnderson444/peerpiper-home.git"
+  },
+  "keywords": [],
+  "author": "Doug Anderson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DougAnderson444/peerpiper-home/issues"
+  },
+  "homepage": "https://github.com/DougAnderson444/peerpiper-home#readme",
+  "devDependencies": {
+    "electron": "^12.0.2"
+  }
+}

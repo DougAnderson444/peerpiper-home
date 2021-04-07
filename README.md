@@ -1,2 +1,6 @@
 # peerpiper-home
-Downloadable program to run peerpiper at home
+
+The code to run Peerpiper.io at home
+
+WIP.
+
