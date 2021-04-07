@@ -1,53 +1,46 @@
-# Sveltron boilerplate
+# electron-webpack-quick-start
+> A bare minimum project structure to get started developing with [`electron-webpack`](https://github.com/electron-userland/electron-webpack).
 
-This is a boilerplate for [Svelte](https://svelte.dev) using [ElectronJS](https://electronjs.com/), with SASS as preprocessor.
+Thanks to the power of `electron-webpack` this template comes packed with...
 
-To create a new project based on this boilerplate:
+* Use of [`webpack-dev-server`](https://github.com/webpack/webpack-dev-server) for development
+* HMR for both `renderer` and `main` processes
+* Use of [`babel-preset-env`](https://github.com/babel/babel-preset-env) that is automatically configured based on your `electron` version
+* Use of [`electron-builder`](https://github.com/electron-userland/electron-builder) to package and build a distributable electron application
 
-```bash
-git clone https://github.com/Blade67/Sveltron
-```
+Make sure to check out [`electron-webpack`'s documentation](https://webpack.electron.build/) for more details.
 
-*Note that you will need to have [Node.js](https://nodejs.org) installed.*
+## Getting Started
+Simply clone down this repository, install dependencies, and get started on your application.
 
-
-## Get started
-
-Install the dependencies...
-
-```bash
-cd Sveltron
-npm install
-```
-
-...then start everything with [Rollup](https://rollupjs.org):
+The use of the [yarn](https://yarnpkg.com/) package manager is **strongly** recommended, as opposed to using `npm`.
 
 ```bash
-npm run dev
+# create a directory of your choice, and copy template using curl
+mkdir new-electron-webpack-project && cd new-electron-webpack-project
+curl -fsSL https://github.com/electron-userland/electron-webpack-quick-start/archive/master.tar.gz | tar -xz --strip-components 1
+
+# or copy template using git clone
+git clone https://github.com/electron-userland/electron-webpack-quick-start.git
+cd electron-webpack-quick-start
+rm -rf .git
+
+# install dependencies
+yarn
 ```
 
-Your app should now be up and running! Edit a component file in `src` and your app in the `main.js`, save it, and reload (CTRL+R) the app to see your changes.
+### Development Scripts
 
-## SASS/SCSS
-**This has only been tested with VS Code, mileage may vary!**
-If you'd rather use SASS instead of SCSS, change `<style type="text/scss">` to `<style type="text/sass">` in your `src/App.svelte`, or remove the `type` tag entirely, to use vanilla CSS.
+```bash
+# run application in development mode
+yarn dev
 
-*Note you might need to add `"svelte.language-server.runtime": "file:///path/to/your/node.exe"` to your VS Code preferences if you're using the Svelte extension, and want propper syntax highlighting.*
+# compile source code and create webpack output
+yarn compile
 
+# `yarn compile` & create build with electron-builder
+yarn dist
 
-## Compile app
-
-The app is designed for quick prototyping using Svelte, thus building the app is up to you.
-
-## Useful resources
-
-Electron [[X]](https://electronjs.org) <br>
-Svelte [[X]](https://svelte.dev) <br>
-Node-Sass [[X]](https://www.npmjs.com/package/node-sass) <br>
-
-
-## Socal media
-
-Twitter [[X]](https://twitter.com/Blade67470) <br>
-Reddit [[X]](https://www.reddit.com/user/Blade67470) <br>
-Discord `Blade#6667`
+# `yarn compile` & create unpacked build with electron-builder
+yarn dist:dir
+```

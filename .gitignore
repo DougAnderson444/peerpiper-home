@@ -1,4 +1,5 @@
 .DS_Store
-node_modules
-public/build
-package-lock.json
+dist/
+node_modules/
+thumbs.db
+.idea/
